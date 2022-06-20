@@ -2,9 +2,14 @@ import express from "express";
 import {ApolloServer} from "apollo-server-express";
 import { schema } from "./schema";
 import { context } from "./context";
+import { ApolloServerPluginLandingPageLocalDefault } from "apollo-server-core";
 
 const startApolloServer = async () =>{
-    const server = new ApolloServer({schema, context});
+    const server = new ApolloServer({
+        schema, 
+        context,
+        introspection: true,                                      // 1
+        plugins: [ApolloServerPluginLandingPageLocalDefault()],});
     const app = express();
     await server.start();
     server.applyMiddleware({app});

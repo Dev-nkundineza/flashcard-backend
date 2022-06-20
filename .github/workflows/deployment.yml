@@ -1,10 +1,9 @@
-name: deploy-hackernews-app-heroku                       # 1
+name: deploy-flashCard-app                      # 1
 
 on:
   push:
     branches:                                            # 2
       - dev
-      - main
 
 jobs:  
   deploy:

@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2                        # 3
-      - run: npm ci                                      # 4
+      - run: yarn                                       # 4
       - name: Run production migration                   
         run: npm run migrate:deploy                      # 5     
         env:
